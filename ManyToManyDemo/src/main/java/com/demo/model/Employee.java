@@ -21,6 +21,15 @@ public class Employee {
 	public Employee() {
 		super();
 	}
+	
+	
+	public Employee(int eid, String ename) {
+		super();
+		this.eid = eid;
+		this.ename = ename;
+	}
+
+
 	public Employee(int eid, String ename, Set<Project> pset) {
 		super();
 		this.eid = eid;
