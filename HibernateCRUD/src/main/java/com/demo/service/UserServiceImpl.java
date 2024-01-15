@@ -27,7 +27,9 @@ public class UserServiceImpl implements UserService{
 		String street=sc.next();
 		System.out.println("enetr city");
 		String city=sc.next();
-		MyUser u=new MyUser(uid,uname,new Address(aid,street,city));
+		System.out.println("enetr state");
+		String state = sc.next();
+		MyUser u=new MyUser(uid,uname,new Address(aid,street,city,state));
 		udao.save(u);
 		
 	}
