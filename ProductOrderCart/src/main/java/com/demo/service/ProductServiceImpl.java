@@ -23,4 +23,20 @@ public class ProductServiceImpl implements ProductService{
 		return pdao.deleteProduct(pid);
 	}
 
+	@Override
+	public boolean addNewProduct(Product p) {
+		return pdao.insertproduct(p);
+	}
+
+	@Override
+	public Product getById(int pid) {
+		return pdao.getById(pid);
+	}
+
+	@Override
+	public boolean updateProduct(Product p) {
+		return pdao.updateProduct(p);
+		
+	}
+
 }

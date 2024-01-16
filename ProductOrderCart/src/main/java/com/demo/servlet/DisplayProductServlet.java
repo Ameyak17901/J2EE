@@ -49,10 +49,14 @@ public class DisplayProductServlet extends HttpServlet {
 			out.print("<a href='logout'>Logout</a>");
 		}else {
 			System.out.println("reached without login");
-			RequestDispatcher rd=request.getRequestDispatcher("Login.html");
+			RequestDispatcher rd=request.getRequestDispatcher("login.html");
 			out.println("Pls enetr credentials!!");
 			rd.include(request, response);
 		}
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request,response);
 	}
 
 }

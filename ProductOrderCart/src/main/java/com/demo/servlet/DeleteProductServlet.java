@@ -38,7 +38,7 @@ public class DeleteProductServlet extends HttpServlet {
 				rd.forward(request, response);
 	}else {
 		System.out.println("reached without login");
-		RequestDispatcher rd=request.getRequestDispatcher("Login.html");
+		RequestDispatcher rd=request.getRequestDispatcher("login.html");
 		out.println("Pls enetr credentials!!");
 		rd.include(request, response);
 	}

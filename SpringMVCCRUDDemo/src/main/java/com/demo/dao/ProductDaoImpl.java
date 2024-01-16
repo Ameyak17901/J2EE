@@ -19,10 +19,36 @@ public class ProductDaoImpl implements ProductDao{
 			Product p = new Product();
 			p.setId(rs.getInt(1));
 			p.setName(rs.getString(2));
-			p.setQty(rs.getInt(3));
-			p.setPrice(rs.getDouble(4));
+			p.setQty(rs.getInt(4));
+			p.setPrice(rs.getDouble(3));
 			return p;
 		});
+	}
+
+	@Override
+	public void insertProduct(Product p) {
+		String query = "insert into product values(?,?,?,?)";
+		jdbcTemplate.update(query,new Object[] {p.getId(),p.getName(),p.getPrice(),p.getQty()});
+	}
+
+	@Override
+	public void updateById(Product p) {
+		String query = "update product set name=?,price=?,qty=? where id=?";
+		jdbcTemplate.update(query,new  Object[] {p.getName(),p.getPrice(),p.getQty(),p.getId()});
+	}
+
+	@Override
+	public Product getById(int id) {
+		String query = "select * from product where id=?";
+		return jdbcTemplate.queryForObject(query,new Object[] {id},(rs,num) ->{
+			return new Product(rs.getInt(1),rs.getString(2),rs.getInt(4),rs.getDouble(3));
+		});
+	}
+
+	@Override
+	public void deleteById(int id) {
+		String query = "delete from product where id=?";
+		jdbcTemplate.update(query,new Object[] {id});
 	}
 
 }

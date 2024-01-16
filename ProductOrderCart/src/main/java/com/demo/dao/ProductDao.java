@@ -10,4 +10,10 @@ public interface ProductDao {
 
 	boolean deleteProduct(int pid);
 
+	boolean insertproduct(Product p);
+
+	Product getById(int pid);
+
+	boolean updateProduct(Product p);
+
 }

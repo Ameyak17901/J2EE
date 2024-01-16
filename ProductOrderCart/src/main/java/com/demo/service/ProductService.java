@@ -10,4 +10,10 @@ public interface ProductService {
 
 	boolean deleteById(int pid);
 
+	boolean addNewProduct(Product p);
+
+	Product getById(int pid);
+
+	boolean updateProduct(Product p);
+
 }
